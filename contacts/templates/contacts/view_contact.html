@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<center>
+  <div class="profile">
+    <h5 class="mb-4">View Contact</h5>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ contact.first_name }} {{ contact.last_name }}</h5>
+        <p class="card-text">Email: {{ contact.email }}</p>
+        <p class="card-text">Phone: {{ contact.phone }}</p>
+        <p class="card-text">Address: {{ contact.address }}</p>
+        <div class="text-center mb-1">
+          <a class="btn btn-danger btn-sm w-25 py-2 fs-6"
+            href={% url 'update_contact' contact.id %}>Update Contact</a>
+          <a class="btn btn-danger btn-sm w-25 py-2 fs-6"
+            href={% url 'delete_contact' contact.id %}>Delete Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</center>
+{% endblock content %}
